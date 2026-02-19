@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LeadSprint — AI Follow-Up for Realtors</title>
+  <style>
+    :root{--accent:#3b82f6;--dark:#000000;--muted:#9ca3af;--card:#0b1220;--border:#1f2937;--green:#22c55e}
+    *{box-sizing:border-box}
+    body{font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system,Arial;margin:0;color:#f8fafc;background:radial-gradient(circle at 20% 20%, #111827 0%, #000000 60%);} 
+    .container{max-width:980px;margin:0 auto;padding:32px}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+    .logo{font-weight:800;color:#ffffff;font-size:22px;letter-spacing:-0.5px}
+    nav a{margin-left:18px;color:var(--muted);text-decoration:none}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-bottom:36px}
+
+    h1{font-size:40px;line-height:1.15;margin:0 0 16px;font-weight:800;letter-spacing:-0.5px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .feature{padding:16px}
+    .feature h4{margin:8px 0 6px}
+    .feature p{margin:0;color:#9ca3af;font-size:14px}
+
+    .cta-btn{display:inline-block;background:var(--green);color:#ffffff;padding:14px 22px;border-radius:12px;text-decoration:none;font-weight:700;transition:all .2s ease;box-shadow:0 0 0 rgba(34,197,94,0.6)} .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(34,197,94,0.4)}
+
+    form label{display:block;font-size:13px;margin-top:10px;color:var(--muted)}
+    form input, form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eefc;margin-top:6px}
+    .pricing{display:flex;gap:12px;margin-top:18px}
+    .plan{flex:1;padding:14px;border-radius:10px;border:1px solid #eee}
+    .plan h3{margin:0}
+    .plan p{color:var(--muted)}
+
+    .testimonials{margin-top:28px}
+    .testimonial{padding:14px;border-left:4px solid #eef2ff;margin-bottom:12px;color:var(--muted)}
+
+    footer{margin-top:36px;padding-top:18px;border-top:1px solid #1f2937;color:#9ca3af;font-size:13px}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">LeadSprint</div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>LeadSprint — instant texts & AI follow-ups for realtors</h1>
+        <p class="lead">Turn every incoming lead into a conversation. Instant SMS within 30s, automated email sequences, and AI suggested replies — set it once and watch follow-ups happen.</p>
+
+        <ul>
+          <li><strong>Instant speed-to-lead.</strong> Texts within 30 seconds.</li>
+          <li><strong>Automated follow-ups.</strong> 3–7 day nurture sequences.</li>
+          <li><strong>Smart reply drafts.</strong> AI drafts responses the agent approves in one click.</li>
+        </ul>
+
+        <div style="margin-top:18px">
+          <a class="cta-btn" href="#contact">Start your setup — $750</a>
+          <a style="margin-left:12px;color:var(--muted);text-decoration:none" href="#pricing">See plans</a>
+        </div>
+
+        <div class="features" id="features">
+          <div class="feature card">
+            <strong>Speed-to-Lead</strong>
+            <p>Auto SMS sent in under 30 seconds to increase contact rates and appointment bookings.</p>
+          </div>
+          <div class="feature card">
+            <strong>AI Email Sequences</strong>
+            <p>Personalized follow-up emails that sound like the agent — not a template.</p>
+          </div>
+          <div class="feature card">
+            <strong>Reply Assistant</strong>
+            <p>Suggested replies delivered to the agent as Gmail drafts or text drafts for one-click send.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3>Quick demo request</h3>
+        <p style="color:var(--muted);font-size:14px">Schedule a 10-minute walkthrough and I’ll show how it integrates with Zillow and your inbox.</p>
+        <form id="contact" action="#" method="post">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="Jane Realtor" required />
+
+          <label for="phone">Phone (for instant test)</label>
+          <input id="phone" name="phone" type="tel" placeholder="+1 (555) 555-5555" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@agency.com" required />
+
+          <label for="agency">Agency (optional)</label>
+          <input id="agency" name="agency" type="text" placeholder="Keller Williams" />
+
+          <label for="consent"><input type="checkbox" id="consent" name="consent" value="yes" /> I consent to receive SMS for demo/testing.</label>
+
+          <div style="margin-top:10px">
+            <button type="submit" class="cta-btn">Request demo — $0</button>
+          </div>
+        </form>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">
+          Or book directly on Calendly (add link)
+        </div>
+      </aside>
+    </section>
+
+    <section id="pricing">
+      <h2>Pricing</h2>
+      <div class="pricing">
+        <div class="plan card">
+          <h3>Starter</h3>
+          <p>$750 setup + $150/mo</p>
+          <p>SMS + Email + 3-step nurture. Gmail drafts for replies.</p>
+        </div>
+        <div class="plan card">
+          <h3>Pro</h3>
+          <p>$1,200 setup + $300/mo</p>
+          <p>Everything in Starter + CRM integration & custom sequences.</p>
+        </div>
+        <div class="plan card">
+          <h3>Agency</h3>
+          <p>Custom pricing</p>
+          <p>White-label, multi-agent, analytics & priority support.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>What agents say</h2>
+      <div class="testimonial card">
+        “We doubled contact rate the first week. The instant text alone booked 3 showings.” — <strong>R. Morales, Richmond</strong>
+      </div>
+      <div class="testimonial card">
+        “I don’t have to sit on my phone. The AI drafts make replies quick and professional.” — <strong>T. Nguyen</strong>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>© <strong>LeadSprint</strong> — Built for local realtors</div>
+        <div>Privacy • Terms • Contact</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Small demo: handle form, show an alert (replace with Zapier/webhook integration later)
+    document.getElementById('contact').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Demo request received. I\'ll show you a live test within 24 hours.');
+      // TODO: wire to Zapier webhook or forms endpoint
+      this.reset();
+    });
+  </script>
+</body>
+</html>
