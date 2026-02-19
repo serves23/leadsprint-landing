@@ -28,6 +28,8 @@
 
     form label{display:block;font-size:13px;margin-top:10px;color:var(--muted)}
     form input, form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eefc;margin-top:6px}
+    .form-message{margin-top:12px;padding:10px 12px;border-radius:10px;background:#0f172a;border:1px solid #1f2a44;color:#e2e8f0;font-size:13px}
+    .form-message.is-hidden{display:none}
     .section{margin-top:32px}
     .pricing{margin-top:36px}
     .subhead{color:var(--muted);margin:6px 0 18px}
@@ -107,7 +109,8 @@
       <aside class="card">
         <h3>Quick demo request</h3>
         <p style="color:var(--muted);font-size:14px">Schedule a 10-minute walkthrough and I’ll show how it integrates with your lead sources and inbox.</p>
-        <form id="contact" action="#" method="post">
+        <form id="contact" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
           <label for="name">Your name</label>
           <input id="name" name="name" type="text" placeholder="Jane Realtor" required />
 
@@ -125,6 +128,12 @@
           <div style="margin-top:10px">
             <button type="submit" class="cta-btn">Request demo — $0</button>
           </div>
+          <div id="form-success" class="form-message is-hidden" role="status" aria-live="polite">
+            Thanks! Your request is in — we’ll follow up shortly.
+          </div>
+          <div id="form-error" class="form-message is-hidden" role="status" aria-live="polite">
+            Something went wrong. Please try again in a minute.
+          </div>
         </form>
 
         <div style="margin-top:12px;color:var(--muted);font-size:13px">
@@ -133,6 +142,33 @@
       </aside>
     </section>
 
+  <script>
+    const form = document.getElementById("contact");
+    const successMessage = document.getElementById("form-success");
+    const errorMessage = document.getElementById("form-error");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const body = new URLSearchParams(formData).toString();
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body,
+      })
+        .then(() => {
+          form.reset();
+          errorMessage.classList.add("is-hidden");
+          successMessage.classList.remove("is-hidden");
+        })
+        .catch(() => {
+          successMessage.classList.add("is-hidden");
+          errorMessage.classList.remove("is-hidden");
+        });
+    });
+  </script>
    <section id="pricing" class="section pricing">
     <h2>Pricing</h2>
     <p class="subhead">
