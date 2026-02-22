@@ -128,12 +128,6 @@
           <div style="margin-top:10px">
             <button type="submit" class="cta-btn">Request demo — $0</button>
           </div>
-          <div id="form-success" class="form-message is-hidden" role="status" aria-live="polite">
-            Thanks! Your request is in — we’ll follow up shortly.
-          </div>
-          <div id="form-error" class="form-message is-hidden" role="status" aria-live="polite">
-            Something went wrong. Please try again in a minute.
-          </div>
         </form>
 
         <div style="margin-top:12px;color:var(--muted);font-size:13px">
@@ -142,33 +136,6 @@
       </aside>
     </section>
 
-  <script>
-    const form = document.getElementById("contact");
-    const successMessage = document.getElementById("form-success");
-    const errorMessage = document.getElementById("form-error");
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const formData = new FormData(form);
-      const body = new URLSearchParams(formData).toString();
-
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body,
-      })
-        .then(() => {
-          form.reset();
-          errorMessage.classList.add("is-hidden");
-          successMessage.classList.remove("is-hidden");
-        })
-        .catch(() => {
-          successMessage.classList.add("is-hidden");
-          errorMessage.classList.remove("is-hidden");
-        });
-    });
-  </script>
    <section id="pricing" class="section pricing">
     <h2>Pricing</h2>
     <p class="subhead">
